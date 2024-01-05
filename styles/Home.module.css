@@ -114,7 +114,69 @@
 
 
 .input {
+	background-color: white;
 	margin-top: 50px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
 	z-index: 1;
+	color: #7732D4;
+	border: 5px solid #7732D4;
+	border-radius: 1rem;
+	padding: 30px;
+}
+
+
+.searchInput{
+	background: #EFF6FF;
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #EFF6FF;
+	border-radius: 2rem;
+	border: 1px solid #dadada;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	font-size: larger;
+	gap: 5px;
+	font-weight: bold;
+	color: #adadad;
+
+
+	border-radius: 1rem;
+	border: none;
+	background-color: white;
+
+	z-index: 2;
+	border-color: #7732D4;
+	box-shadow: 10px 8px 15px 0px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+
+	} 
+
+
+	.button {
+        width: 200px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  font-size: larger;
+  font-weight: bold;
+  color: white;
+  border-radius: 2rem;
+  background: #7732D4;
+  border: none;
+  margin-top: 15px;
+  box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+
+
+  }
+  .button:hover{
+  background: #EFF6FF;
+  color: #7732D4;
+  box-shadow: inset 1px 4px 6px 0px rgba(0, 0, 0, 0.3);
+   
 }

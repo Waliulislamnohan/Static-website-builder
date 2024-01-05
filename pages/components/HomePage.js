@@ -20,6 +20,9 @@ export default function HomePage() {
     justifyContent: 'center',
     alignItems: 'center',
     gap: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   });
 
   const handleWeightChange = (e) => {
@@ -31,8 +34,8 @@ export default function HomePage() {
   };
 
   const generateCode = () => {
-    const boxStyleString = Object.entries(boxStyle)
-      .map(([key, value]) => `${key}: ${value};`)
+    const formattedBoxStyle = Object.entries(boxStyle)
+      .map(([key, value]) => `${key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`)}: ${value};`)
       .join('\n');
   
     const htmlCode = `<!DOCTYPE html>
@@ -40,12 +43,12 @@ export default function HomePage() {
     <head>
     <style>
     .boxGenerated {
-      ${boxStyleString}
+      ${formattedBoxStyle}
     }
     </style>
     </head>
     <body>
-    <div class="boxGenerated" style="${boxStyleString}">
+    <div class="boxGenerated" style="${formattedBoxStyle}">
       <!-- Display content inside the box -->
       <p>Box Content</p>
     </div>
@@ -75,13 +78,15 @@ export default function HomePage() {
 
   return (
     <div>
-    <div className={styles.input}> <input type="text" placeholder="Enter weight" value={weight} onChange={handleWeightChange} />
-      <input type="text" placeholder="Enter height" value={height} onChange={handleHeightChange} />
-      <button onClick={handleBox}>Change</button>
-      <button onClick={generateCode}>Generate HTML/CSS</button>
+    <div className={styles.input}> 
+    <h1>Static Web Builder</h1>
+    <input type="text" className={styles.searchInput} placeholder="Enter weight" value={weight} onChange={handleWeightChange} />
+      <input type="text" className={styles.searchInput} placeholder="Enter height" value={height} onChange={handleHeightChange} />
+      <button className={styles.button} onClick={handleBox}>Change</button>
+      <button className={styles.button} onClick={generateCode}>Generate HTML/CSS</button>
       </div> 
       
-      <div className="box" style={boxStyle}>
+      <div className="box" onClick={generateCode} style={boxStyle}>
         {/* Display content inside the box */}
         <p>Box Content</p>
       </div>
